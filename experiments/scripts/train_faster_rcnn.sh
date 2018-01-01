@@ -40,8 +40,8 @@ case ${DATASET} in
     RATIOS="[0.5,1,2]"
     ;;
   kitti_voc)
-    TRAIN_IMDB="kitti_voc_2012_trainval"
-    TEST_IMDB="kitti_voc_2012_test"
+    TRAIN_IMDB="kitti_voc_2017_trainval"
+    TEST_IMDB="kitti_voc_2017_test"
     STEPSIZE="[50000]"
     ITERS=100000
     ANCHORS="[8,16,32]"

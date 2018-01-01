@@ -31,7 +31,7 @@ for year in ['2007', '2012']:
 # kitti_voc
 for year in ["2017"]:
   for split in ["trainval", "test"]:
-    name = 'voc_{}_{}'.format(year, split)
+    name = 'kitti_voc_{}_{}'.format(year, split)
     __sets[name] = (lambda split=split, year=year: kitti_voc(split, year, use_diff=True))
 
 # Set up coco_2014_<split>
