@@ -24,7 +24,7 @@ from model.config import cfg
 
 class kitti_voc(imdb):
   def __init__(self, image_set, year, use_diff=False):
-    name = 'voc_' + year + '_' + image_set
+    name = 'kitti_voc_' + year + '_' + image_set
     if use_diff:
       name += '_diff'
     imdb.__init__(self, name)
