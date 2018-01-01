@@ -22,7 +22,7 @@ from .voc_eval import voc_eval
 from model.config import cfg
 
 
-class pascal_voc(imdb):
+class kitti_voc(imdb):
   def __init__(self, image_set, year, use_diff=False):
     name = 'voc_' + year + '_' + image_set
     if use_diff:
@@ -50,7 +50,7 @@ class pascal_voc(imdb):
                    'rpn_file': None}
 
     assert os.path.exists(self._devkit_path), \
-      'VOCdevkit path does not exist: {}'.format(self._devkit_path)
+      'KITTI-VOC path does not exist: {}'.format(self._devkit_path)
     assert os.path.exists(self._data_path), \
       'Path does not exist: {}'.format(self._data_path)
 
@@ -88,7 +88,7 @@ class pascal_voc(imdb):
     """
     Return the default path where PASCAL VOC is expected to be installed.
     """
-    return os.path.join(cfg.DATA_DIR, 'VOCdevkit' + self._year)
+    return os.path.join(cfg.DATA_DIR, 'KITTI-VOC' + self._year)
 
   def gt_roidb(self):
     """
