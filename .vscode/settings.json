@@ -1,0 +1,24 @@
+{
+    // "python.pythonPath": "/Users/Chuan/anaconda3/bin/python",
+    // "python.linting.pylintPath": "/Users/Chuan/anaconda3/bin/pylint",
+    // "python.formatting.yapfPath": "/Users/Chuan/anaconda3/bin/yapf",
+    "python.pythonPath": "/Users/chuan/anaconda2/envs/python3/bin/python",
+    "python.linting.pylintPath": "/Users/chuan/anaconda2/envs/python3/bin/pylint",
+    "python.formatting.yapfPath": "/Users/chuan/anaconda2/envs/python3/bin/yapf",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "terminal.integrated.shell.osx": "zsh",
+    "python.linting.pep8Enabled": false,
+    "python.formatting.provider": "yapf",
+    "editor.fontSize": 13,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true
+    },
+    "terminal.integrated.fontSize": 13
+}

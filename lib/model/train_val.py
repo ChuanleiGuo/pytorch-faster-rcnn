@@ -143,7 +143,7 @@ class SolverWrapper(object):
     # Get the snapshot name in pytorch
     redfiles = []
     for stepsize in cfg.TRAIN.STEPSIZE:
-      redfiles.append(os.path.join(self.output_dir, 
+      redfiles.append(os.path.join(self.output_dir,
                       cfg.TRAIN.SNAPSHOT_PREFIX + '_iter_{:d}.pth'.format(stepsize+1)))
     sfiles = [ss for ss in sfiles if ss not in redfiles]
 
@@ -223,7 +223,7 @@ class SolverWrapper(object):
     if lsf == 0:
       lr, last_snapshot_iter, stepsizes, np_paths, ss_paths = self.initialize()
     else:
-      lr, last_snapshot_iter, stepsizes, np_paths, ss_paths = self.restore(str(sfiles[-1]), 
+      lr, last_snapshot_iter, stepsizes, np_paths, ss_paths = self.restore(str(sfiles[-1]),
                                                                              str(nfiles[-1]))
     iter = last_snapshot_iter + 1
     last_summary_time = time.time()
@@ -233,7 +233,9 @@ class SolverWrapper(object):
     next_stepsize = stepsizes.pop()
 
     self.net.train()
-    self.net.cuda()
+
+    if torch.cuda.is_available():
+      self.net.cuda()
 
     while iter < max_iters + 1:
       # Learning rate

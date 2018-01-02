@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${file}",
+            "cwd": "${workspaceRoot}",
+            "env": {},
+            "envFile": "${workspaceRoot}/.env",
+            "debugOptions": [
+                "WaitOnAbnormalExit",
+                "WaitOnNormalExit",
+                "RedirectOutput"
+            ],
+            "args": [
+                "--weight", "data/imagenet_weights/res50.pth",
+                "--imdb", "voc_2007_trainval",
+                "--imdbval", "voc_2007_test",
+                "--iters", "70000",
+                "--cfg", "experiments/cfgs/res50.yml",
+                "--net", "res50",
+                "--set", "ANCHOR_SCALES", "[8,16,32]", "ANCHOR_RATIOS", "[0.5,1,2]",
+                "TRAIN.STEPSIZE", "[50000]"
+            ]
+        }
+    ]
+}
