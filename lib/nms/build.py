@@ -20,15 +20,25 @@ print(this_file)
 extra_objects = ['src/cuda/nms_kernel.cu.o']
 extra_objects = [os.path.join(this_file, fname) for fname in extra_objects]
 
-ffi = create_extension(
-    '_ext.nms',
-    headers=headers,
-    sources=sources,
-    define_macros=defines,
-    relative_to=__file__,
-    with_cuda=with_cuda,
-    extra_objects=extra_objects
-)
+if torch.cuda.is_available():
+    ffi = create_extension(
+        '_ext.nms',
+        headers=headers,
+        sources=sources,
+        define_macros=defines,
+        relative_to=__file__,
+        with_cuda=with_cuda,
+        extra_objects=extra_objects
+    )
+else:
+    ffi = create_extension(
+        '_ext.nms',
+        headers=headers,
+        sources=sources,
+        define_macros=defines,
+        relative_to=__file__,
+        with_cuda=with_cuda
+    )
 
 if __name__ == '__main__':
     ffi.build()
